@@ -85,7 +85,7 @@ int main()
 				}
 				else if(choice == 3)
 				{
-					food()
+					//Food
 				}
 				else if(choice == 4)
 				{
