@@ -7,6 +7,7 @@ int main()
 {
 	int hp = 100, maxHP = 100, encounter = 1, enemyType, enemyHP, enemyMaxHP, choice = 0, attackStrength = 5, damage, critChance = 10, defense = 0, maxDefense = 10, clearBuffer, fishingChance = 50, enemyMove = 0, denarii = 0, denariiFound = 0, damagePrior = 0, enemyFlight = 0, enemyDamageBuff = 0, enemyLazy = 0, levels = 0, heal = 0, bearBuff = 0, enemyBaseDamageBuff = 0, enemyBaseHPBuff = 0, randomCheck = 0, spicyBoost = 0, difficulty = 1, showLog = 0;
 	char enemy[20];
+	char chara;
 	int inventory[10] = {0}, log[10][5] = {{0}};
 	
 	srand(time(0));
@@ -453,7 +454,7 @@ int main()
 
 	printf("Welcome to Otter Adventure. You are an otter recently escaped from an otter sactuary and are trying to get through as much of the forest as you can. Good luck!\n");
 	printf("Press [enter] to advance dialogue.\n");
-	scanf("%c");
+	scanf("%c", &chara);
 	
 	printf("What difficulty/mode do you want to play?\n1) Normal\n2) Low Health\n3) Medium Health\n4) Master\n");
 	do
@@ -538,7 +539,7 @@ int main()
 			else
 				printf("Oh no! You encounter a %s!\n", enemy);
 				
-			scanf("%c");
+			scanf("%c", &chara);
 			
 			//This the the main enemy encounter loop.
 			while(enemyHP > 0 && hp > 0)
@@ -596,7 +597,7 @@ int main()
 							
 						spicyBoost = 0;
 					}
-					scanf("%c");
+					scanf("%c", &chara);
 				}
 				else if(choice == 2)
 				{
@@ -798,7 +799,7 @@ int main()
 						inventory[choice - 1] = 0;
 					}
 					choice = 3;
-					scanf("%c");
+					scanf("%c", &chara);
 				}
 				else if(choice == 4)
 				{
@@ -809,7 +810,7 @@ int main()
 						printf("\nYou currently have \033[32m%d health\033[0m. ", hp);
 						
 					printf("Your max health is \033[32m%d\033[0m.\nThe %s has \033[31m%d health\033[0m and its max health is \033[31m%d\033[0m.\nYou have %d defense currently.\nYou have a %d%% chance of catching fish.\nYou have a \033[31m%d%%\033[0m chance to land a \033[31mvigorous attack\033[0m.\nYou have \e[0;33m%d denarii\033[0m.\n", maxHP, enemy, enemyHP, enemyMaxHP, defense, fishingChance, critChance, denarii);
-					scanf("%c");
+					scanf("%c", &chara);
 				}
 				else if (choice == 5)
 				{
@@ -824,7 +825,7 @@ int main()
 					{
 						printf("\033[31mOh no! You were not able to escape the fight!\033[0m\n");
 					}
-					scanf("%c");
+					scanf("%c", &chara);
 				}
 				else
 				{
@@ -950,7 +951,7 @@ int main()
 							enemyLazy ++;
 						}
 					}
-					scanf("%c");
+					scanf("%c", &chara);
 					//This lowers the enemy's flight.
 					if(enemyFlight > 0)
 					{
@@ -958,7 +959,7 @@ int main()
 						if(enemyFlight == 0)
 						{
 							printf("The %s has landed.\n", enemy);
-							scanf("%c");
+							scanf("%c", &chara);
 						}
 					}
 				}
@@ -1001,7 +1002,7 @@ int main()
 							
 							printf("You collected \e[0;33m%d denarii\033[0m! You now have \e[0;33m%d denarii\033[0m.\n", denariiFound, denarii);
 						}
-						scanf("%c");
+						scanf("%c", &chara);
 					}
 				}
 			}
@@ -1101,7 +1102,7 @@ int main()
 				}
 				choice = 3; //This resets the choice to three for the encounter check later that determines if the next enocunter is a chest.
 			}
-			scanf("%c");
+			scanf("%c", &chara);
 			addToLog(levels, encounter, choice, maxHP, hp);
 		}
 		else if(encounter == 3)
@@ -1168,7 +1169,7 @@ int main()
 				printf("It's probably safer to leave it alone...\n");
 				randomCheck = 0; //This is for the log so it knows if you didn't open the chest.
 			}
-			scanf("%c");
+			scanf("%c", &chara);
 			addToLog(levels, encounter, randomCheck, maxHP, hp);
 		}
 		else if(encounter == 4)
