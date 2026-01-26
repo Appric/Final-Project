@@ -1,3 +1,4 @@
+# Final-Project
 Final Project for Computer Science I.
 
 finalProject.c is the main code used for the project and intended for normal compiling and executability on Linux.
